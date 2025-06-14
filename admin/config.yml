@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "image"
+public_folder: "/image"
 
 collections:
   - name: "about"
@@ -11,17 +11,34 @@ collections:
     files:
       - label: "About Section"
         name: "about"
-        file: "about.md"
+        file: "index.html"
+        fields:
+          - { label: "About Title", name: "title", widget: "string" }
+          - { label: "About Body", name: "body", widget: "markdown" }
+
+  - name: "blogs"
+    label: "Blog Posts"
+    files:
+      - label: "Blog 1"
+        name: "blog1"
+        file: "blog1.html"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "projects"
-    label: "Projects"
-    folder: "projects"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Image", name: "image", widget: "image" }
+      - label: "Blog 2"
+        name: "blog2"
+        file: "blog2.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - label: "CV"
+        name: "cv"
+        file: "index.html"
+        fields:
+          - { label: "CV Link Text", name: "cvtext", widget: "string" }
+          - { label: "CV File Path", name: "cvfile", widget: "string" }
